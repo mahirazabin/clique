@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import { TextField, Button, Typography } from '@mui/material';
 import { Root, Paper, Form, FileInput, ButtonSubmit } from './styles'; // Import styled components
 import FileBase from 'react-file-base64'; // Import FileBase properly
+import {useDispatch} from 'react-redux';
+import {createPost} from '../../actions/posts';
 
 const FormComponent = () => {
   const [postData, setPostData] = useState({
     creator: '', title: '', message: '', tags: '', selectedFile: ''
   });
 
-  const handleSubmit = () => {
-    // Form submission logic
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // not to get refresh in the browser
+    dispatch(createPost(postData)); // passing all the data from our state
   };
 
   const clear = () => {
@@ -20,7 +25,7 @@ const FormComponent = () => {
     <Root>
       <Paper>
         <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-          <Typography variant="h6">Post your Progress!</Typography>
+          <Typography variant="h6">Post Your Progress!</Typography>
           <TextField 
             name="creator" 
             variant="outlined" 

@@ -5,7 +5,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getPosts = void 0;
+exports.createPost = exports.getPosts = void 0;
 
 var api = _interopRequireWildcard(require("../api"));
 
@@ -53,3 +53,41 @@ var getPosts = function getPosts() {
 };
 
 exports.getPosts = getPosts;
+
+var createPost = function createPost(post) {
+  return function _callee2(dispatch) {
+    var _ref2, data;
+
+    return regeneratorRuntime.async(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            _context2.next = 3;
+            return regeneratorRuntime.awrap(api.createPosts(post));
+
+          case 3:
+            _ref2 = _context2.sent;
+            data = _ref2.data;
+            dispatch({
+              type: 'CREATE',
+              payload: data
+            });
+            _context2.next = 11;
+            break;
+
+          case 8:
+            _context2.prev = 8;
+            _context2.t0 = _context2["catch"](0);
+            console.log(_context2.t0);
+
+          case 11:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, null, null, [[0, 8]]);
+  };
+};
+
+exports.createPost = createPost;

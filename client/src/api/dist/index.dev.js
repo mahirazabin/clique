@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetchPosts = void 0;
+exports.createPosts = exports.fetchPosts = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -17,3 +17,9 @@ var fetchPosts = function fetchPosts() {
 };
 
 exports.fetchPosts = fetchPosts;
+
+var createPosts = function createPosts(newPost) {
+  return _axios["default"].post(url, newPost);
+};
+
+exports.createPosts = createPosts;
