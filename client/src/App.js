@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, AppBar, Typography, Grow } from '@mui/material';
+import { useDispatch } from 'react-redux';
+
 import Grid from '@mui/material/Unstable_Grid2';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
