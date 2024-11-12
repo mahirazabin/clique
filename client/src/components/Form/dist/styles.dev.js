@@ -3,33 +3,44 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.ButtonSubmit = exports.FileInput = exports.Form = exports.Paper = exports.Root = void 0;
 
-var _styles = require("@mui/styles");
+var _material = require("@mui/material");
 
-var _default = (0, _styles.makeStyles)(function (theme) {
+var Root = (0, _material.styled)('div')(function (_ref) {
+  var theme = _ref.theme;
   return {
-    root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1)
-      }
-    },
-    paper: {
-      padding: theme.spacing(2)
-    },
-    form: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'center'
-    },
-    fileInput: {
-      width: '97%',
-      margin: '10px 0'
-    },
-    buttonSubmit: {
-      marginBottom: 10
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1)
     }
   };
 });
-
-exports["default"] = _default;
+exports.Root = Root;
+var Paper = (0, _material.styled)('div')(function (_ref2) {
+  var theme = _ref2.theme;
+  return {
+    padding: theme.spacing(2)
+  };
+});
+exports.Paper = Paper;
+var Form = (0, _material.styled)('form')(function () {
+  return {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
+  };
+});
+exports.Form = Form;
+var FileInput = (0, _material.styled)('div')(function () {
+  return {
+    width: '97%',
+    margin: '10px 0'
+  };
+});
+exports.FileInput = FileInput;
+var ButtonSubmit = (0, _material.styled)('button')(function () {
+  return {
+    marginBottom: '10px'
+  };
+});
+exports.ButtonSubmit = ButtonSubmit;

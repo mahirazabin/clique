@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchPosts = void 0;
 
-var _axious = _interopRequireDefault(require("axious"));
+var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var url = 'http://localhost:5001/posts';
 
 var fetchPosts = function fetchPosts() {
-  return _axious["default"].get(url);
+  return _axios["default"].get(url);
 };
 
 exports.fetchPosts = fetchPosts;

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Container, AppBar, Typography, Grow } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux'; // allows us to dispatch an action
 
+import {getPosts} from './actions/posts';
 import Grid from '@mui/material/Unstable_Grid2';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
@@ -10,6 +11,11 @@ import useStyles from './styles';
 
 const App = () => { // an arrow function that return JSX
     const classes = useStyles();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getPosts());
+    }, [dispatch]);
 
     return (
         // this container will make sure to center everything

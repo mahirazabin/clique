@@ -3,23 +3,24 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.ActionDiv = exports.SmMargin = exports.MainContainer = void 0;
 
-var _styles = require("@mui/styles");
+var _material = require("@mui/material");
 
-var _default = (0, _styles.makeStyles)(function (theme) {
+// Styled components
+var MainContainer = (0, _material.styled)('div')({
+  display: 'flex',
+  alignItems: 'center'
+});
+exports.MainContainer = MainContainer;
+var SmMargin = (0, _material.styled)('div')(function (_ref) {
+  var theme = _ref.theme;
   return {
-    mainContainer: {
-      display: 'flex',
-      alignItems: 'center'
-    },
-    smMargin: {
-      margin: theme.spacing(1)
-    },
-    actionDiv: {
-      textAlign: 'center'
-    }
+    margin: theme.spacing(1)
   };
 });
-
-exports["default"] = _default;
+exports.SmMargin = SmMargin;
+var ActionDiv = (0, _material.styled)('div')({
+  textAlign: 'center'
+});
+exports.ActionDiv = ActionDiv;
