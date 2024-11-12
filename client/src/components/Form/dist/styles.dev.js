@@ -23,11 +23,15 @@ var Paper = (0, _material.styled)('div')(function (_ref2) {
   };
 });
 exports.Paper = Paper;
-var Form = (0, _material.styled)('form')(function () {
+var Form = (0, _material.styled)('form')(function (_ref3) {
+  var theme = _ref3.theme;
   return {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1)
+    }
   };
 });
 exports.Form = Form;

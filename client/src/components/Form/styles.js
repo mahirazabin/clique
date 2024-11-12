@@ -10,10 +10,13 @@ const Paper = styled('div')(({ theme }) => ({
   padding: theme.spacing(2),
 }));
 
-const Form = styled('form')(() => ({
+const Form = styled('form')(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
+  '& .MuiTextField-root': {
+    margin: theme.spacing(1),
+  },
 }));
 
 const FileInput = styled('div')(() => ({
