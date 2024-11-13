@@ -2,6 +2,9 @@ import React from 'react';
 import Post from './Post/Post';
 import { useSelector } from 'react-redux';
 import { styled } from '@mui/material';
+import { CircularProgress } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2'; 
+
 
 // Styled components
 const PostsContainer = styled('div')({
@@ -21,13 +24,15 @@ const Posts = () => {
     console.log(posts);
 
     return (
-        <PostsContainer>
-            <PostsTitle>POSTS</PostsTitle>
-            {/* Add logic to display posts */}
-            {posts.map((post) => (
-                <Post key={post._id} post={post} />
-            ))}
-        </PostsContainer>
+        !posts.length ? <CircularProgress /> : (
+          <Grid className= {classes.container} container alignItems="stretch" spacing={3}>
+              {posts.map((post) => (
+                  <Grid key={post._id} item xs={12} sm={6}>
+                    <Post post={post} />
+                  </Grid>
+              ))}
+          </Grid>
+        )
     );
 }
 
