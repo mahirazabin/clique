@@ -15,7 +15,7 @@ const App = () => { // an arrow function that return JSX
 
     useEffect(() => {
         dispatch(getPosts());
-    }, [dispatch]);
+    }, []);
 
     return (
         // this container will make sure to center everything

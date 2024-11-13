@@ -3,59 +3,59 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.StyledCardActions = exports.StyledTitle = exports.Details = exports.Overlay2 = exports.Overlay = exports.StyledCardMedia = exports.StyledCard = void 0;
 
-var _styles = require("@mui/styles");
+var _material = require("@mui/material");
 
-var _default = (0, _styles.makeStyles)({
-  media: {
-    height: 0,
-    paddingTop: '56.25%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    backgroundBlendMode: 'darken'
-  },
-  border: {
-    border: 'solid'
-  },
-  fullHeightCard: {
-    height: '100%'
-  },
-  card: {
+// Styled components
+var StyledCard = (0, _material.styled)(_material.Card)(function (_ref) {
+  var theme = _ref.theme;
+  return {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
     borderRadius: '15px',
     height: '100%',
-    position: 'relative'
-  },
-  overlay: {
-    position: 'absolute',
-    top: '20px',
-    left: '20px',
-    color: 'white'
-  },
-  overlay2: {
-    position: 'absolute',
-    top: '20px',
-    right: '20px',
-    color: 'white'
-  },
-  grid: {
-    display: 'flex'
-  },
-  details: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '20px'
-  },
-  title: {
-    padding: '0 16px'
-  },
-  cardActions: {
-    padding: '0 16px 8px 16px',
-    display: 'flex',
-    justifyContent: 'space-between'
-  }
+    position: 'relative',
+    margin: theme.spacing(2)
+  };
 });
-
-exports["default"] = _default;
+exports.StyledCard = StyledCard;
+var StyledCardMedia = (0, _material.styled)(_material.CardMedia)({
+  height: 0,
+  paddingTop: '56.25%',
+  // 16:9 aspect ratio
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  backgroundBlendMode: 'darken'
+});
+exports.StyledCardMedia = StyledCardMedia;
+var Overlay = (0, _material.styled)('div')({
+  position: 'absolute',
+  top: '20px',
+  left: '20px',
+  color: 'white'
+});
+exports.Overlay = Overlay;
+var Overlay2 = (0, _material.styled)('div')({
+  position: 'absolute',
+  top: '20px',
+  right: '20px',
+  color: 'white'
+});
+exports.Overlay2 = Overlay2;
+var Details = (0, _material.styled)('div')({
+  display: 'flex',
+  justifyContent: 'space-between',
+  margin: '20px'
+});
+exports.Details = Details;
+var StyledTitle = (0, _material.styled)(_material.Typography)({
+  padding: '0 16px'
+});
+exports.StyledTitle = StyledTitle;
+var StyledCardActions = (0, _material.styled)(_material.CardActions)({
+  padding: '0 16px 8px 16px',
+  display: 'flex',
+  justifyContent: 'space-between'
+});
+exports.StyledCardActions = StyledCardActions;

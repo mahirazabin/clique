@@ -1,39 +1,33 @@
 import React from 'react';
 import Post from './Post/Post';
 import { useSelector } from 'react-redux';
-import { styled } from '@mui/material';
-import { CircularProgress } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2'; 
+import { styled, CircularProgress } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 
-
-// Styled components
-const PostsContainer = styled('div')({
+// Styled component for the grid container
+const GridContainer = styled(Grid)(({ theme }) => ({
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  gap: '16px', // Add spacing between the posts
-});
-
-const PostsTitle = styled('h1')({
-  marginBottom: '20px',
-});
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  margin: theme.spacing(2),
+}));
 
 const Posts = () => {
-    const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.posts);
 
-    console.log(posts);
+  console.log(posts);
 
-    return (
-        !posts.length ? <CircularProgress /> : (
-          <Grid className= {classes.container} container alignItems="stretch" spacing={3}>
-              {posts.map((post) => (
-                  <Grid key={post._id} item xs={12} sm={6}>
-                    <Post post={post} />
-                  </Grid>
-              ))}
+  return (
+    !posts.length ? <CircularProgress /> : (
+      <GridContainer container alignItems="stretch" spacing={3}>
+        {posts.map((post) => (
+          <Grid key={post._id} item xs={12} sm={6}>
+            <Post post={post} />
           </Grid>
-        )
-    );
-}
+        ))}
+      </GridContainer>
+    )
+  );
+};
 
 export default Posts;
