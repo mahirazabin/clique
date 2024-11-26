@@ -21,10 +21,15 @@ app.use(_bodyParser["default"].urlencoded({
   limit: "30mb",
   extended: true
 }));
-app.use((0, _cors["default"])());
-app.use('/posts', _posts["default"]);
-var CONNECTION_URL = "mongodb+srv://mahirazabin:mahirazabin123@cluster0.6fnme.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-var PORT = process.env.PORT || 5001; // Changed port number
+app.use((0, _cors["default"])()); // Route for posts
+
+app.use('/posts', _posts["default"]); // Default route for root path
+
+app.get('/', function (req, res) {
+  res.send('Welcome to MoveMates!');
+});
+var CONNECTION_URL = "mongodb+srv://mewmew:mewmew123@cluster0.im1jn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+var PORT = process.env.PORT || 3000;
 
 _mongoose["default"].connect(CONNECTION_URL).then(function () {
   return app.listen(PORT, function () {
